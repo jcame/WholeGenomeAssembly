@@ -37,3 +37,21 @@ rm UF2.fq
 ```
 
 ## Dereplication
+
+```
+seqkit rmdup forward.fq -s -o DPF1.fq -j 4
+seqkit rmdup reverse.fq -s -o DPF2.fq -j 4
+
+rm forward.fq
+rm reverse.fq
+```
+
+## Deconvolution
+
+```
+bbduk.sh in=DPF1.fq out=forward.fq  ref=/Users/mxl641/Desktop/Software/phiX/phi_X174_phage.fa k=31 hdist=1
+bbduk.sh in=DPF2.fq out=reverse.fq  ref=/Users/mxl641/Desktop/Software/phiX/phi_X174_phage.fa k=31 hdist=1
+
+rm DPF1.fq
+rm DPF2.fq
+```
