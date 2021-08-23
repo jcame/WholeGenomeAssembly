@@ -106,3 +106,14 @@ rm *fq
 grep ">" scaffolds_2k_illumina.fasta
 grep ">" scaffolds_2k_hybrid.fasta
 ```
+
+----
+----
+----
+----
+
+## Assembly of ONT w/o Illumina
+
+```
+flye --nano-raw Loman_E.coli_MAP006-1_2D_50x.fasta --out-dir out_nano --threads 4
+```
