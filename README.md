@@ -21,7 +21,7 @@ conda install -c bioconda nanofilt
 
 ---
 
-Once installed let us proceed with the assembly:
+Once installed let us proceed with the assembly, download phi_X174_phage.fa (spiked QC DNA) and NexteraPE-PE.fa (adapters list) provided in the files of this repository and continue as follows:
 
 ## Quality Control
 ```
