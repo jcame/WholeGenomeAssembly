@@ -27,4 +27,13 @@ Once installed let us proceed with the assembly:
 ```
 trimmomatic PE -threads 4 -phred33 *R1* *R2* PF1.fq UF1.fq PF2.fq UF2.fq ILLUMINACLIP:NexteraPE-PE.fa:2:30:10 LEADING:20 TRAILING:20 MINLEN:50
 
+cat PF1.fq UF1.fq > forward.fq
+cat PF2.fq UF2.fq > reverse.fq
+
+rm PF1.fq 
+rm UF1.fq
+rm PF2.fq
+rm UF2.fq
 ```
+
+## Dereplication
