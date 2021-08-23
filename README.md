@@ -115,5 +115,5 @@ grep ">" scaffolds_2k_hybrid.fasta
 ## Assembly of ONT w/o Illumina
 
 ```
-flye --nano-raw Loman_E.coli_MAP006-1_2D_50x.fasta --out-dir out_nano --threads 4
+flye --nano-raw BC10_HQ.fq --out-dir sFlye_folder_ONT --threads 4
 ```
