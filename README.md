@@ -111,9 +111,3 @@ grep ">" scaffolds_2k_hybrid.fasta
 ----
 ----
 ----
-
-## Assembly of ONT w/o Illumina
-
-```
-flye --nano-raw BC10_HQ.fq --out-dir sFlye_folder_ONT --threads 4
-```
