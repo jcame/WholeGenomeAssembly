@@ -23,6 +23,7 @@ conda install -c bioconda nanofilt
 
 Once installed let us proceed with the assembly:
 
+## Quality Control
 ```
 trimmomatic PE -threads 4 -phred33 *R1* *R2* PF1.fq UF1.fq PF2.fq UF2.fq ILLUMINACLIP:NexteraPE-PE.fa:2:30:10 LEADING:20 TRAILING:20 MINLEN:50
 
