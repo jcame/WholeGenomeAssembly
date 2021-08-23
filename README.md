@@ -2,8 +2,8 @@
 
 Install the following dependencies using conda:
 
- conda install -c bioconda trimmomatic
- <conda install -c bioconda seqkit 
+conda install -c bioconda trimmomatic
+ < conda install -c bioconda seqkit 
  
  conda install -c bioconda bbmap
  
