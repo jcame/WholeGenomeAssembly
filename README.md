@@ -1,4 +1,4 @@
-# Whole Genome Assembly (WGA) Workflow (Illumina hybrid ONT)
+# Whole Genome Assembly (WGA) Workflow (Illumina | ONT)
 
 Make sure you have install the following dependencies:
 - trimmomatic
