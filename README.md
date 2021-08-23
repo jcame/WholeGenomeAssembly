@@ -20,3 +20,5 @@ conda install -c bioconda nanofilt
 ```
 
 ---
+
+Once installed let us proceed with the assembly:
