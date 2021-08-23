@@ -53,8 +53,8 @@ rm reverse.fq
 ## Deconvolution
 
 ```
-bbduk.sh in=DPF1.fq out=forward.fq  ref=/Users/mxl641/Desktop/Software/phiX/phi_X174_phage.fa k=31 hdist=1
-bbduk.sh in=DPF2.fq out=reverse.fq  ref=/Users/mxl641/Desktop/Software/phiX/phi_X174_phage.fa k=31 hdist=1
+bbduk.sh in=DPF1.fq out=forward.fq  ref=phi_X174_phage.fa k=31 hdist=1
+bbduk.sh in=DPF2.fq out=reverse.fq  ref=phi_X174_phage.fa k=31 hdist=1
 
 rm DPF1.fq
 rm DPF2.fq
