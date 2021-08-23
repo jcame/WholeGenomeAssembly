@@ -23,6 +23,7 @@ conda install -c bioconda nanofilt
 
 Once installed let us proceed with the assembly:
 
-'''
-java -jar /Users/mxl641/Desktop/Software/Trimmomatic-0.38/trimmomatic-0.38.jar PE -threads 4 -phred33 *R1* *R2* PF1.fq UF1.fq PF2.fq UF2.fq ILLUMINACLIP:/Users/mxl641/Desktop/Software/Trimmomatic-0.38/adapters/NexteraPE-PE.fa:2:30:10 LEADING:20 TRAILING:20 MINLEN:50
-'''
+```
+trimmomatic PE -threads 4 -phred33 *R1* *R2* PF1.fq UF1.fq PF2.fq UF2.fq ILLUMINACLIP:NexteraPE-PE.fa:2:30:10 LEADING:20 TRAILING:20 MINLEN:50
+
+```
