@@ -8,7 +8,7 @@ Make sure you have install the following dependencies:
 - spades
 - nanofilt
 
----
+If you miss any of them you can install them through ANACONDA as folllows:
 
 ```
 conda install -c bioconda trimmomatic
@@ -19,4 +19,4 @@ conda install -c bioconda spades
 conda install -c bioconda nanofilt
 ```
 
-
+---
