@@ -49,7 +49,7 @@ rm *single.fq
 cat BC10.fastq | NanoFilt -q 7 -l 500 --readtype 1D > BC10_HQ.fq
 
 
-## Denovo Assembly
+## Denovo Assembly using (i) Illumina & (ii) Illumina hybrid ONT
 
 
 spades.py --pe1-1 forward.fq.paired.fq --pe1-2 reverse.fq.paired.fq --pe1-s unpaired.fq -o spades_folder_illumina -t 4 -m 7 --only-assembler
