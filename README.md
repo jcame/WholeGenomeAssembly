@@ -1,4 +1,6 @@
-# MicrobiomeAnalysisCourse_[KU-FOOD]
+# Steps to carry out whole genome assembly (WGA)
+
+  #dasddsdd
 
 
 
