@@ -22,7 +22,9 @@ conda install -c bioconda nanofilt
 ----
 ---
 
-Once installed let us proceed with the assembly, download phi_X174_phage.fa (spiked QC DNA) and NexteraPE-PE.fa (adapters list) provided in the files of this repository and continue as follows:
+Once installed let us proceed with the assembly, download phi_X174_phage.fa (spiked QC DNA) and NexteraPE-PE.fa (adapters list) provided in the files of this repository.
+Also download the illumna and ONT data that will be assembled here: https://www.dropbox.com/sh/vesi0sbbwp5z6ri/AABaLcer6hOyaJLPS6y10yc-a?dl=0
+
 
 ## Quality Control
 ```
