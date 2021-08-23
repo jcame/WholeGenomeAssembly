@@ -1,12 +1,12 @@
 # Steps to Hybrid Whole Genome Assembly (WGA) (Illumina|ONT)
 
 Make sure you have install the following dependencies:
-#trimmomatic
-#seqkit
-#bbmap
-#fastq-pair
-#spades
-#nanofilt
+- trimmomatic
+- seqkit
+- bbmap
+- fastq-pair
+- spades
+- nanofilt
 
 ---
 
