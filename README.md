@@ -67,3 +67,18 @@ rm reverse.fq
 cat *single.fq > unpaired.fq
 rm *single.fq
 ```
+
+## Quality Control for ONT reads
+
+```
+cat BC10.fastq | NanoFilt -q 7 -l 500 --readtype 1D > BC10_HQ.fq
+```
+
+## Denovo Assembly
+
+```
+spades.py --pe1-1 forward.fq.paired.fq --pe1-2 reverse.fq.paired.fq --pe1-s unpaired.fq -o spades_folder_illumina -t 4 -m 7 --only-assembler
+spades.py --pe1-1 forward.fq.paired.fq --pe1-2 reverse.fq.paired.fq --pe1-s unpaired.fq -o spades_folder_hybrid   -t 4 -m 7 --only-assembler  --nanopore BC10_HQ.fq
+```
+
+
