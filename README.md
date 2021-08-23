@@ -55,3 +55,15 @@ bbduk.sh in=DPF2.fq out=reverse.fq  ref=/Users/mxl641/Desktop/Software/phiX/phi_
 rm DPF1.fq
 rm DPF2.fq
 ```
+
+## Pairing sequences (paired & unpaired)
+
+```
+fastq_pair forward.fq reverse.fq
+
+rm forward.fq
+rm reverse.fq
+
+cat *single.fq > unpaired.fq
+rm *single.fq
+```
