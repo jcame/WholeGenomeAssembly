@@ -124,7 +124,7 @@ grep ">" scaffolds_2k_hybrid.fasta
 ## Cleaning
 
 ```
-rm *fq
+#rm *fq
 ```
 
 ----
