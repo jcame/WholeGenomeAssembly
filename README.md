@@ -73,12 +73,6 @@ cat *single.fq > unpaired.fq
 rm *single.fq
 ```
 
-## Quality Control for ONT reads
-
-```
-cat BC10.fastq | NanoFilt -q 7 -l 500 --readtype 1D > BC10_HQ.fq
-```
-
 ## Denovo Assembly using (i) Illumina
 
 ```
@@ -95,32 +89,34 @@ seqkit seq spades_folder_illumina/scaffolds.fasta -m 2000 -g > scaffolds_2k_illu
 
 ```
 grep ">" scaffolds_2k_illumina.fasta
-grep ">" scaffolds_2k_hybrid.fasta
 ```
 
 ----
 ----
 ----
 ----
+
+## Quality Control for ONT reads
+
+```
+cat BC10.fastq | NanoFilt -q 7 -l 500 --readtype 1D > BC10_HQ.fq
+```
 
 ## Denovo Assembly using (ii) Illumina hybrid ONT
 
 ```
-spades.py --pe1-1 forward.fq.paired.fq --pe1-2 reverse.fq.paired.fq --pe1-s unpaired.fq -o spades_folder_illumina -t 4 -m 7 --only-assembler
 spades.py --pe1-1 forward.fq.paired.fq --pe1-2 reverse.fq.paired.fq --pe1-s unpaired.fq -o spades_folder_hybrid   -t 4 -m 7 --only-assembler  --nanopore BC10_HQ.fq
 ```
 
 ## Selecting long scaffolds (ii) Illumina hybrid ONT
 
 ```
-seqkit seq spades_folder_illumina/scaffolds.fasta -m 2000 -g > scaffolds_2k_illumina.fasta
 seqkit seq spades_folder_hybrid/scaffolds.fasta   -m 2000 -g > scaffolds_2k_hybrid.fasta
 ```
 
 ## results (ii) Illumina hybrid ONT
 
 ```
-grep ">" scaffolds_2k_illumina.fasta
 grep ">" scaffolds_2k_hybrid.fasta
 ```
 
