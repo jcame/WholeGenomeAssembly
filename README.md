@@ -7,6 +7,7 @@ Make sure you have install the following dependencies:
 - fastq-pair
 - spades
 - nanofilt
+- blast
 
 
 If you miss any of them you can install them through ANACONDA as folllows:
@@ -18,6 +19,7 @@ conda install -c bioconda bbmap
 conda install -c bioconda fastq-pair 
 conda install -c bioconda spades  
 conda install -c bioconda nanofilt
+conda install -c bioconda blast
 ```
 
 ----
@@ -91,8 +93,7 @@ seqkit seq spades_folder_illumina/scaffolds.fasta -m 2000 -g > scaffolds_2k_illu
 grep ">" scaffolds_2k_illumina.fasta
 ```
 
-----
-----
+
 ----
 ----
 
@@ -131,6 +132,8 @@ rm *fq
 ----
 ----
 
+
+## Comparing Assemblies
 
 ```
 makeblastdb -in scaffolds_2k_hybrid.fasta -dbtype nucl
