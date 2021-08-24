@@ -125,3 +125,14 @@ grep ">" scaffolds_2k_hybrid.fasta
 ```
 rm *fq
 ```
+
+----
+----
+----
+----
+
+
+```
+makeblastdb -in scaffolds_2k_hybrid.fasta -dbtype nucl
+blastn -query scaffolds_2k_illumina.fasta -db scaffolds_2k_hybrid.fasta -outfmt 6 -evalue 10e-5 -num_threads 4 -strand both -subject_besthit  > OutSelfBlast.txt 
+```
