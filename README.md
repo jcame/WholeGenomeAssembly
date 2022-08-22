@@ -113,7 +113,7 @@ cat BC10.fastq | NanoFilt -q 7 -l 500 --readtype 1D > BC10_HQ.fq
 git clone https://github.com/rrwick/Unicycler.git
 cd Unicycler
 make
-unicycler -1 short_reads_1.fastq.gz -2 short_reads_2.fastq.gz -l long_reads.fastq.gz -o output_dir
+./Unicycler/unicycler-runner.py -1 forward.fq.paired.fq -2 reverse.fq.paired.fq -s unpaired.fq -l long_reads.fastq.gz -o output_dir
 ```
 
 ```
