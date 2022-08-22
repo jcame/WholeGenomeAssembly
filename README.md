@@ -1,4 +1,7 @@
-# Whole Genome Assembly (WGA) Workflow (Illumina | ONT)
+# Whole Genome Assembly (WGA) Workflow (Illumina | ONT Hybrid)
+
+conda create -n HOLA python=3.9
+
 
 Make sure you have install the following dependencies:
 - trimmomatic
@@ -10,7 +13,7 @@ Make sure you have install the following dependencies:
 - blast
 
 
-If you miss any of them you can install them through ANACONDA as folllows:
+If you miss any of them you can install them through CONDA as folllows:
 
 ```
 conda install -c bioconda trimmomatic
@@ -27,7 +30,7 @@ conda install -c bioconda blast
 
 Once installed let us proceed with the assembly, download phi_X174_phage.fa (spiked QC DNA) and NexteraPE-PE.fa (adapters list) provided in the files of this repository.
 
-Also download the illumina and ONT data tol be assembled here: https://www.dropbox.com/sh/vesi0sbbwp5z6ri/AABaLcer6hOyaJLPS6y10yc-a?dl=0
+Also download the illumina and ONT data to be assembled here: https://www.dropbox.com/sh/vesi0sbbwp5z6ri/AABaLcer6hOyaJLPS6y10yc-a?dl=0
 
 
 ## Quality Control
@@ -104,6 +107,14 @@ cat BC10.fastq | NanoFilt -q 7 -l 500 --readtype 1D > BC10_HQ.fq
 ```
 
 ## Denovo Assembly using (ii) Illumina hybrid ONT
+
+```
+
+git clone https://github.com/rrwick/Unicycler.git
+cd Unicycler
+make
+unicycler -1 short_reads_1.fastq.gz -2 short_reads_2.fastq.gz -l long_reads.fastq.gz -o output_dir
+```
 
 ```
 spades.py --pe1-1 forward.fq.paired.fq --pe1-2 reverse.fq.paired.fq --pe1-s unpaired.fq -o spades_folder_hybrid   -t 4 -m 7 --only-assembler  --nanopore BC10_HQ.fq
