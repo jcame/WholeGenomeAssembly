@@ -1,14 +1,17 @@
 # Whole Genome Assembly (WGA) Workflow (Illumina | ONT Hybrid)
 
-conda create -n HOLA python=3.9
+```
+conda create -n HybridAssembly python=3.9
+conda activate HybridAssembly
 
+```
 
 Make sure you have install the following dependencies:
 - trimmomatic
 - seqkit
 - bbmap
 - fastq-pair
-- spades
+- spades (Only if hybrid assembly will be used)
 - nanofilt
 - blast
 
@@ -20,7 +23,7 @@ conda install -c bioconda trimmomatic
 conda install -c bioconda seqkit 
 conda install -c bioconda bbmap 
 conda install -c bioconda fastq-pair 
-conda install -c bioconda spades  
+#conda install -c bioconda spades  
 conda install -c bioconda nanofilt
 conda install -c bioconda blast
 conda install -c bioconda racon
