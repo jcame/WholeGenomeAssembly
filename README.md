@@ -9,7 +9,6 @@ conda activate HybridAssembly
 
 Make sure you have install the following dependencies:
 - trimmomatic (Only if hybrid assembly will be used)
-- seqkit (Only if hybrid assembly will be used)
 - bbmap (Only if hybrid assembly will be used)
 - fastq-pair (Only if hybrid assembly will be used)
 - spades (Only if hybrid assembly will be used)
@@ -22,7 +21,6 @@ If you miss any of them you can install them through CONDA as folllows:
 
 ```
 #conda install -c bioconda trimmomatic
-#conda install -c bioconda seqkit 
 #conda install -c bioconda bbmap 
 #conda install -c bioconda fastq-pair 
 #conda install -c bioconda spades  
@@ -33,7 +31,7 @@ conda install -c bioconda racon
 git clone https://github.com/rrwick/Unicycler.git  #Documentation: https://github.com/rrwick/Unicycler 
 cd Unicycler
 make
-
+cd ..
 
 ```
 ----
@@ -135,19 +133,6 @@ cat BC10.fastq | NanoFilt -q 7 -l 500 --readtype 1D > BC10_HQ.fq
 
 ```
 ./Unicycler/unicycler-runner.py -1 forward.fq.paired.fq -2 reverse.fq.paired.fq -s unpaired.fq -l BC10_HQ.fq -o output_dir -t 4 --mode normal --min_fasta_length 1000
-```
-
-
-## Selecting long scaffolds (ii) Illumina hybrid ONT
-
-```
-seqkit seq spades_folder_hybrid/scaffolds.fasta   -m 2000 -g > scaffolds_2k_hybrid.fasta
-```
-
-## results (ii) Illumina hybrid ONT
-
-```
-grep ">" scaffolds_2k_hybrid.fasta
 ```
 
 ## Cleaning
