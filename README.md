@@ -54,7 +54,7 @@ cat ONT_M08.fastq | NanoFilt -q 7 -l 2000 --readtype 1D > ONT_M08_7Q_2000L.fq
 
 
 
-# Hybrid Assembly takes over nearly 2 hours (RAM 8GB | 4 cores), feel free to do it in your spare time (Illumina | ONT Hybrid)
+# Hybrid Assembly takes 2-3 hours (RAM 8GB | 4 cores), feel free to do it in your spare time (Illumina | ONT Hybrid)
 
 ## Quality Control
 ```
