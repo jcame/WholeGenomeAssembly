@@ -54,7 +54,7 @@ cat ONT_M08.fastq | NanoFilt -q 7 -l 2000 --readtype 1D > ONT_M08_7Q_2000L.fq
 
 
 
-# Hybrid Assembly takes 2-3 hours (RAM 8GB | 4 cores), feel free to do it in your spare time (Illumina | ONT Hybrid)
+# Hybrid Assembly takes 2-3 hours (RAM 8GB | 4 cores), feel free to do it in your spare time  (ONT reads only)
 
 ## Quality Control
 ```
@@ -101,38 +101,11 @@ cat *single.fq > unpaired.fq
 rm *single.fq
 ```
 
-## Denovo Assembly using (i) Illumina
-
-```
-spades.py --pe1-1 forward.fq.paired.fq --pe1-2 reverse.fq.paired.fq --pe1-s unpaired.fq -o spades_folder_illumina -t 4 -m 7 --only-assembler
-```
-
-## Selecting long scaffolds (i) Illumina
-
-```
-seqkit seq spades_folder_illumina/scaffolds.fasta -m 2000 -g > scaffolds_2k_illumina.fasta
-```
-
-## results (i) Illumina
-
-```
-grep ">" scaffolds_2k_illumina.fasta
-```
-
-
-----
-----
-
-## Quality Control for ONT reads
-
-```
-cat BC10.fastq | NanoFilt -q 7 -l 500 --readtype 1D > BC10_HQ.fq
-```
 
 ## Denovo Assembly using (ii) Illumina hybrid ONT
 
 ```
-./Unicycler/unicycler-runner.py -1 forward.fq.paired.fq -2 reverse.fq.paired.fq -s unpaired.fq -l BC10_HQ.fq -o output_dir -t 4 --mode normal --min_fasta_length 1000
+./Unicycler/unicycler-runner.py -1 forward.fq.paired.fq -2 reverse.fq.paired.fq -s unpaired.fq -l ONT_M08_7Q_2000L.fq -o output_dir -t 4 --mode bold --min_fasta_length 1000
 ```
 
 ## Cleaning
