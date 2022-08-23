@@ -37,7 +37,7 @@ make
 ----
 ---
 
-Once installed let us proceed with the assembly, but first download the illumina and ONT data to be assembled here: https://www.dropbox.com/sh/vesi0sbbwp5z6ri/AABaLcer6hOyaJLPS6y10yc-a?dl=0
+Once installed let us proceed with the assembly, but first download the illumina and ONT data to be assembled here: https://www.dropbox.com/sh/cfdxwru5pe82bra/AACnojDJEOqGnzcwDnTc5Tjha?dl=0 
 
 
 ## Quality Control for ONT reads
@@ -60,7 +60,7 @@ cat BC10.fastq | NanoFilt -q 7 -l 2000 --readtype 1D > BC10_7Q_2000L.fq
 
 ## Quality Control
 ```
-trimmomatic PE -threads 4 -phred33 *R1* *R2* PF1.fq UF1.fq PF2.fq UF2.fq ILLUMINACLIP:NexteraPE-PE.fa:2:30:10 LEADING:20 TRAILING:20 MINLEN:50
+trimmomatic PE -threads 4 -phred33 *R1* *R2* PF1.fq UF1.fq PF2.fq UF2.fq ILLUMINACLIP:bin/NexteraPE-PE.fa:2:30:10 LEADING:20 TRAILING:20 MINLEN:50
 
 cat PF1.fq UF1.fq > forward.fq
 cat PF2.fq UF2.fq > reverse.fq
@@ -84,8 +84,8 @@ rm reverse.fq
 ## Deconvolution
 
 ```
-bbduk.sh in=DPF1.fq out=forward.fq  ref=phi_X174_phage.fa k=31 hdist=1
-bbduk.sh in=DPF2.fq out=reverse.fq  ref=phi_X174_phage.fa k=31 hdist=1
+bbduk.sh in=DPF1.fq out=forward.fq  ref=bin/phi_X174_phage.fa k=31 hdist=1
+bbduk.sh in=DPF2.fq out=reverse.fq  ref=bin/phi_X174_phage.fa k=31 hdist=1
 
 rm DPF1.fq
 rm DPF2.fq
@@ -134,16 +134,9 @@ cat BC10.fastq | NanoFilt -q 7 -l 500 --readtype 1D > BC10_HQ.fq
 ## Denovo Assembly using (ii) Illumina hybrid ONT
 
 ```
-
-git clone https://github.com/rrwick/Unicycler.git
-cd Unicycler
-make
 ./Unicycler/unicycler-runner.py -1 forward.fq.paired.fq -2 reverse.fq.paired.fq -s unpaired.fq -l BC10_HQ.fq -o output_dir -t 4 --mode normal --min_fasta_length 1000
 ```
 
-```
-spades.py --pe1-1 forward.fq.paired.fq --pe1-2 reverse.fq.paired.fq --pe1-s unpaired.fq -o spades_folder_hybrid   -t 4 -m 7 --only-assembler  --nanopore BC10_HQ.fq
-```
 
 ## Selecting long scaffolds (ii) Illumina hybrid ONT
 
