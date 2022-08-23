@@ -28,14 +28,39 @@ conda install -c bioconda nanofilt
 conda install -c bioconda blast
 conda install -c bioconda racon
 
+git clone https://github.com/rrwick/Unicycler.git
+cd Unicycler
+make
 ```
-
 ----
 ---
 
 Once installed let us proceed with the assembly, download phi_X174_phage.fa (spiked QC DNA) and NexteraPE-PE.fa (adapters list) provided in the files of this repository.
 
 Also download the illumina and ONT data to be assembled here: https://www.dropbox.com/sh/vesi0sbbwp5z6ri/AABaLcer6hOyaJLPS6y10yc-a?dl=0
+
+
+## Quality Control for ONT reads
+
+```
+cat BC10.fastq | NanoFilt -q 7 -l 2000 --readtype 1D > BC10_7Q_2000L.fq
+```
+
+## Denovo Assembly using (ii) Illumina hybrid ONT
+
+```
+./Unicycler/unicycler-runner.py -1 forward.fq.paired.fq -2 reverse.fq.paired.fq -s unpaired.fq -l BC10_HQ.fq -o output_dir -t 4 --mode normal --min_fasta_length 1000
+```
+
+
+
+
+
+
+
+
+
+
 
 
 ## Quality Control
@@ -148,10 +173,3 @@ grep ">" scaffolds_2k_hybrid.fasta
 ----
 ----
 
-
-## Comparing Assemblies
-
-```
-makeblastdb -in scaffolds_2k_hybrid.fasta -dbtype nucl
-blastn -query scaffolds_2k_illumina.fasta -db scaffolds_2k_hybrid.fasta -outfmt 6 -evalue 10e-5 -num_threads 4 -strand both -subject_besthit  > OutSelfBlast.txt 
-```
