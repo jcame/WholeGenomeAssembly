@@ -17,7 +17,7 @@ Make sure you have install the following dependencies:
 - racon
 - unicycler
 
-If you miss any of them you can install them through CONDA as folllows:
+You will have to install these dependencies through CONDA as folllows:
 
 ```
 #conda install -c bioconda trimmomatic
