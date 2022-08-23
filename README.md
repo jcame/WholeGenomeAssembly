@@ -30,9 +30,11 @@ conda install -c bioconda nanofilt
 conda install -c bioconda blast
 conda install -c bioconda racon
 
-git clone https://github.com/rrwick/Unicycler.git
+git clone https://github.com/rrwick/Unicycler.git  #Documentation: https://github.com/rrwick/Unicycler 
 cd Unicycler
 make
+
+
 ```
 ----
 ---
