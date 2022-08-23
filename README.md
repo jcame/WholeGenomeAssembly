@@ -44,21 +44,19 @@ Once installed let us proceed with the assembly, but first download the illumina
 
 ## Quality Control for ONT reads
 ```
-cat BC10.fastq | NanoFilt -q 7 -l 2000 --readtype 1D > BC10_7Q_2000L.fq
+cat ONT_M08.fastq | NanoFilt -q 7 -l 2000 --readtype 1D > ONT_M08_7Q_2000L.fq
 ```
 
 ## Denovo Assembly using (ii) Illumina hybrid ONT
 ```
-./Unicycler/unicycler-runner.py -1 forward.fq.paired.fq -2 reverse.fq.paired.fq -s unpaired.fq -l BC10_HQ.fq -o output_dir -t 4 --mode normal --min_fasta_length 1000
+./Unicycler/unicycler-runner.py  -l ONT_M08_7Q_2000L.fq -o output_dir -t 4 --mode normal --min_fasta_length 1000
 ```
 
 
 
 
 
-
-
-# Hybrid Assembly takes over nearly 2 hours, feel free to do it in your spare time (Illumina | ONT Hybrid)
+# Hybrid Assembly takes over nearly 2 hours (RAM 8GB | 4 cores), feel free to do it in your spare time (Illumina | ONT Hybrid)
 
 ## Quality Control
 ```
