@@ -1,28 +1,30 @@
 # Whole Genome Assembly (WGA) Workflow (Illumina | ONT Hybrid)
 
+Let us create a new environment with specific packages
+
 ```
 conda create -n HybridAssembly python=3.9
 conda activate HybridAssembly
-
 ```
 
 Make sure you have install the following dependencies:
-- trimmomatic
-- seqkit
-- bbmap
-- fastq-pair
+- trimmomatic (Only if hybrid assembly will be used)
+- seqkit (Only if hybrid assembly will be used)
+- bbmap (Only if hybrid assembly will be used)
+- fastq-pair (Only if hybrid assembly will be used)
 - spades (Only if hybrid assembly will be used)
 - nanofilt
 - blast
-
+- racon
+- unicycler
 
 If you miss any of them you can install them through CONDA as folllows:
 
 ```
-conda install -c bioconda trimmomatic
-conda install -c bioconda seqkit 
-conda install -c bioconda bbmap 
-conda install -c bioconda fastq-pair 
+#conda install -c bioconda trimmomatic
+#conda install -c bioconda seqkit 
+#conda install -c bioconda bbmap 
+#conda install -c bioconda fastq-pair 
 #conda install -c bioconda spades  
 conda install -c bioconda nanofilt
 conda install -c bioconda blast
@@ -35,19 +37,15 @@ make
 ----
 ---
 
-Once installed let us proceed with the assembly, download phi_X174_phage.fa (spiked QC DNA) and NexteraPE-PE.fa (adapters list) provided in the files of this repository.
-
-Also download the illumina and ONT data to be assembled here: https://www.dropbox.com/sh/vesi0sbbwp5z6ri/AABaLcer6hOyaJLPS6y10yc-a?dl=0
+Once installed let us proceed with the assembly, but first download the illumina and ONT data to be assembled here: https://www.dropbox.com/sh/vesi0sbbwp5z6ri/AABaLcer6hOyaJLPS6y10yc-a?dl=0
 
 
 ## Quality Control for ONT reads
-
 ```
 cat BC10.fastq | NanoFilt -q 7 -l 2000 --readtype 1D > BC10_7Q_2000L.fq
 ```
 
 ## Denovo Assembly using (ii) Illumina hybrid ONT
-
 ```
 ./Unicycler/unicycler-runner.py -1 forward.fq.paired.fq -2 reverse.fq.paired.fq -s unpaired.fq -l BC10_HQ.fq -o output_dir -t 4 --mode normal --min_fasta_length 1000
 ```
@@ -58,10 +56,7 @@ cat BC10.fastq | NanoFilt -q 7 -l 2000 --readtype 1D > BC10_7Q_2000L.fq
 
 
 
-
-
-
-
+# Hybrid Assembly takes over nearly 2 hours, feel free to do it in your spare time (Illumina | ONT Hybrid)
 
 ## Quality Control
 ```
