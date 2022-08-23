@@ -49,7 +49,7 @@ cat ONT_M08.fastq | NanoFilt -q 7 -l 2000 --readtype 1D > ONT_M08_7Q_2000L.fq
 
 ## Denovo Assembly using (ii) Illumina hybrid ONT
 ```
-./Unicycler/unicycler-runner.py  -l ONT_M08_7Q_2000L.fq -o output_dir -t 4 --mode normal --min_fasta_length 1000
+./Unicycler/unicycler-runner.py  -l ONT_M08_7Q_2000L.fq -o output_dir -t 4 --mode bold --min_fasta_length 2000
 ```
 
 
